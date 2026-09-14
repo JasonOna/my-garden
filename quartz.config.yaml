@@ -148,12 +148,12 @@ plugins:
   - source: "@quartz-community/tag-page"
     enabled: true
   - source: "@quartz-community/explorer"
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 50
   - source: "@quartz-community/graph"
-    enabled: true
+    enabled: false
     layout:
       position: right
       priority: 10
@@ -166,7 +166,7 @@ plugins:
       groupOptions:
         grow: true
   - source: "@quartz-community/backlinks"
-    enabled: true
+    enabled: false
     layout:
       position: right
       priority: 50
@@ -180,6 +180,7 @@ plugins:
     layout:
       position: beforeBody
       priority: 20
+      condition: not-index
   - source: "@quartz-community/tag-list"
     enabled: false
     layout:
@@ -197,7 +198,7 @@ plugins:
       priority: 30
       group: toolbar
   - source: "@quartz-community/reader-mode"
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 35
@@ -209,7 +210,7 @@ plugins:
       priority: 5
       condition: not-index
   - source: "@quartz-community/comments"
-    enabled: true
+    enabled: false
     options:
       provider: giscus
       options:
@@ -226,9 +227,8 @@ plugins:
     options:
       links:
         GitHub: https://github.com/JasonOna/my-garden
-        Discord Community: https://discord.gg/cRFFHYye7t
     layout:
-      position: footer
+      position: body
       priority: 50
   - source: "@quartz-community/recent-notes"
     enabled: false
