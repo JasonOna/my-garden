@@ -4,6 +4,16 @@ on:
     workflows: ["Build Preview Deployment"]
     types:
       - completed
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "ID of the successful Build Preview Deployment run"
+        required: true
+        type: string
+      branch:
+        description: "Branch name to deploy"
+        required: true
+        type: string
 
 permissions:
   actions: read
@@ -13,7 +23,7 @@ permissions:
 
 jobs:
   deploy-preview:
-    if: ${{ github.repository == 'jackyzha0/quartz' && github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.repository == 'JasonOna/my-garden' && (github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success') }}
     runs-on: ubuntu-latest
     name: Deploy Preview to Cloudflare Pages
     steps:
@@ -24,7 +34,7 @@ jobs:
           name: preview-build
           path: build
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ github.event_name == 'workflow_dispatch' && inputs.run_id || github.event.workflow_run.id }}
 
       - name: Deploy to Cloudflare Pages
         uses: AdrianGonz97/refined-cf-pages-action@v1
@@ -34,4 +44,5 @@ jobs:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           projectName: quartz
           deploymentName: Branch Preview
+          branch: ${{ github.event_name == 'workflow_dispatch' && inputs.branch || github.event.workflow_run.head_branch }}
           directory: ${{ steps.preview-build-artifact.outputs.download-path }}
