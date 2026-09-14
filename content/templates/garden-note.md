@@ -1,5 +1,5 @@
 ---
-title: 
+title:
 type: note
 stage: seedling
 tags: []
@@ -32,13 +32,16 @@ Use lowercase, hyphenated topic tags. Add only the tags that genuinely describe 
 -->
 
 ## Question or observation
+
 <!-- What is the raw question, claim, or observation? -->
 
 ## Notes
+
 <!-- Add evidence, links, reflections, and connections here. -->
 
 ## Next step
+
 <!-- What would move this idea forward? -->
+
 _Add the next step here._
 <!-- End of template -->
-

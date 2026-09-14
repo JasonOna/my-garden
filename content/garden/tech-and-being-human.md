@@ -21,4 +21,4 @@ date: 2026-09-14
 
 ---
 
-*Compost entry — unedited first pass, captured via voice riff on 2026-09-14.*
+_Compost entry — unedited first pass, captured via voice riff on 2026-09-14._
