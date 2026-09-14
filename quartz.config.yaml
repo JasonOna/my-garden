@@ -209,10 +209,15 @@ plugins:
       priority: 5
       condition: not-index
   - source: "@quartz-community/comments"
-    enabled: false
+    enabled: true
     options:
       provider: giscus
-      options: {}
+      options:
+        repo: jasonona/my-garden
+        repoId: R_kgDOSSVbtw
+        category: Announcements
+        categoryId: DIC_kwDOSSVbt84C8LeR
+        lang: en
     layout:
       position: afterBody
       priority: 10
@@ -220,7 +225,7 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
+        GitHub: https://github.com/JasonOna/my-garden
         Discord Community: https://discord.gg/cRFFHYye7t
     layout:
       position: footer
