@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-preview:
-    if: ${{ github.repository == 'jackyzha0/quartz' }}
+    if: ${{ github.repository == 'JasonOna/my-garden' }}
     runs-on: ubuntu-latest
     name: Build Preview
     steps:
@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
 
       - name: Cache dependencies
         uses: actions/cache@v5
@@ -41,11 +41,18 @@ jobs:
       - name: Install Quartz plugins
         run: npx quartz plugin install
 
+      - name: Show checked out workflows
+        run: |
+          git rev-parse HEAD
+          git ls-files .github/workflows
+
       - name: Check types and style
         run: npm run check
 
       - name: Build Quartz
-        run: npx quartz build -d docs -v
+        env:
+          QUARTZ_BASE_URL: my-garden.pages.dev
+        run: npx quartz build -d content -v
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v7

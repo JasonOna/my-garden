@@ -1,3 +1,13 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+.note-properties .note-properties-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.note-properties .note-properties-separator {
+  display: none;
+}

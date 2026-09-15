@@ -258,6 +258,9 @@ export async function loadQuartzConfig(
 
   const configuration = {
     ...(json.configuration as unknown as GlobalConfiguration),
+    ...(process.env.QUARTZ_BASE_URL !== undefined
+      ? { baseUrl: process.env.QUARTZ_BASE_URL || undefined }
+      : {}),
     ...configOverrides,
   }
 
