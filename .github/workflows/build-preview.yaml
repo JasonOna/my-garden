@@ -50,6 +50,8 @@ jobs:
         run: npm run check
 
       - name: Build Quartz
+        env:
+          QUARTZ_BASE_URL: my-garden.pages.dev
         run: npx quartz build -d content -v
 
       - name: Upload build artifact
